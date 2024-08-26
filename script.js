@@ -23,6 +23,12 @@ let btnCartProducts = Array.from(
 const sliderAbsolute = document.querySelector(".slider__absolute ");
 const overlay = document.querySelector(".overlay");
 const iconCloseAbsolute = document.querySelector(".icon__close");
+const sliderImgThumbnail = Array.from(
+  document.querySelectorAll(".slider__img__thumbnail")
+);
+const sliderImgThumbnailAbsolute = Array.from(
+  document.querySelectorAll(".slider__img__thumbnail--absolute")
+);
 
 const productsCart = [];
 let currentImg = 1;
@@ -30,7 +36,6 @@ let currentImgAbsolute = 1;
 let currentQuantity = 0;
 
 function lightBoxView() {
-
   if (window.innerWidth > 900) {
     productImages.map((img) =>
       img.addEventListener("click", function () {
@@ -63,50 +68,59 @@ document.addEventListener("keydown", function (e) {
 
 iconCloseAbsolute.addEventListener("click", hideSliderAbsolute);
 
-function rightImg(num, array) {
+function rightImg(num, array, arrayThumbnail) {
   array.filter((img) =>
     +img.dataset.imageNumber !== num
       ? (img.style.display = "none")
       : (img.style.display = "block")
   );
+
+  arrayThumbnail.map(img => img.classList.remove('custom__highlight'))
+
+  arrayThumbnail.map((img) =>
+    Number(img.dataset.thumbnail) ===
+    +array[currentImg - 1].dataset.imageNumber
+      ? img.classList.add("custom__highlight")
+      : false
+  );
 }
 
-rightImg(currentImg, productImages);
-rightImg(currentImg, productImagesAbsolute);
+rightImg(currentImg, productImages, sliderImgThumbnail);
+rightImg(currentImg, productImagesAbsolute, sliderImgThumbnailAbsolute);
 
-function next(array) {
+function next(array, arrayThumbnail) {
   if (currentImg >= 4) {
     currentImg = 1;
   } else {
     currentImg += 1;
   }
-  rightImg(currentImg, array);
+  rightImg(currentImg, array, arrayThumbnail);
 }
 
-function prev(array) {
+function prev(array, arrayThumbnail) {
   if (currentImg === 1) {
     currentImg = 4;
   } else {
     currentImg -= 1;
   }
 
-  rightImg(currentImg, array);
+  rightImg(currentImg, array, arrayThumbnail);
 }
 
 prevImgBtn.addEventListener("click", function () {
-  prev(productImages);
+  prev(productImages, sliderImgThumbnail);
 });
 
 nextImgBtn.addEventListener("click", function () {
-  next(productImages);
+  next(productImages, sliderImgThumbnail);
 });
 
 nextImgBtnAbsolute.addEventListener("click", function () {
-  next(productImagesAbsolute);
+  next(productImagesAbsolute, sliderImgThumbnailAbsolute);
 });
 
 prevImgBtnAbsolute.addEventListener("click", function () {
-  prev(productImagesAbsolute);
+  prev(productImagesAbsolute, sliderImgThumbnailAbsolute);
 });
 
 quantityCountLess.addEventListener("click", function () {
@@ -195,31 +209,20 @@ document.addEventListener("click", function (e) {
   cartContent.style.display = "none";
 });
 
-const sliderImgThumbnail = Array.from(
-  document.querySelectorAll(".slider__img__thumbnail")
-);
 
-sliderImgThumbnail.map((img) =>
-  console.log(
-    +img.dataset.thumbnail ===
-      +productImages[currentImg - 1].dataset.imageNumber
-      ? img.classList.add("custom__highlight")
-      : false
-  )
-);
+
+
 // productImages
 sliderImgThumbnail.map((img) =>
   img.addEventListener("click", function () {
     sliderImgThumbnail.map((img) => img.classList.remove("custom__highlight"));
     img.classList.add("custom__highlight");
     currentImg = +img.dataset.thumbnail;
-    rightImg(currentImg, productImages);
+    rightImg(currentImg, productImages, sliderImgThumbnail);
   })
 );
 
-const sliderImgThumbnailAbsolute = Array.from(
-  document.querySelectorAll(".slider__img__thumbnail--absolute")
-);
+
 
 sliderImgThumbnailAbsolute.map((img) =>
   console.log(
@@ -237,7 +240,7 @@ sliderImgThumbnailAbsolute.map((img) =>
     );
     img.classList.add("custom__highlight");
     currentImg = +img.dataset.thumbnail;
-    rightImg(currentImg, productImagesAbsolute);
+    rightImg(currentImg, productImagesAbsolute, sliderImgThumbnailAbsolute);
   })
 );
 
@@ -249,14 +252,15 @@ burgerIcon.addEventListener("click", function () {
   if (!isOpen) {
     overlay.style.display = "block";
     burgerIcon.src = "images/icon-close.svg";
+    navMobile.classList.add('transform')
     isOpen = true;
   } else {
     overlay.style.display = "none";
     burgerIcon.src = "images/icon-menu.svg";
+    navMobile.classList.remove('transform')
     isOpen = false;
   }
-  navMobile.classList.toggle("display");
-  navMobileUl.classList.toggle("display");
+  
 });
 
 const body = document.querySelector("body");
