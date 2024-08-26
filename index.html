@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>E-commerce product page - MikDra1</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="left__side__menu">
+          <div class="header__box">
+            <img src="images/icon-menu.svg" alt="" class="burger__icon" />
+            <img src="images/logo.svg" alt="" class="logo" />
+          </div>
+          <nav class="nav nav--mobile">
+            <ul class="nav__ul--mobile">
+              <li class="nav__li--mobile"><a href="#" class="nav__a--mobile">Collections</a></li>
+              <li class="nav__li--mobile"><a href="#" class="nav__a--mobile">Men</a></li>
+              <li class="nav__li--mobile"><a href="#" class="nav__a--mobile">Women</a></li>
+              <li class="nav__li--mobile"><a href="#" class="nav__a--mobile">About</a></li>
+              <li class="nav__li--mobile"><a href="#" class="nav__a--mobile">Contact</a></li>
+            </ul>
+          </nav>
+          <nav class="nav nav--desktop">
+            <ul class="nav__ul--desktop">
+              <li class="nav__li--desktop">
+                <a href="#" class="nav__a--desktop">Collections</a>
+              </li>
+              <li class="nav__li--desktop">
+                <a href="#" class="nav__a--desktop">Men</a>
+              </li>
+              <li class="nav__li--desktop">
+                <a href="#" class="nav__a--desktop">Women</a>
+              </li>
+              <li class="nav__li--desktop">
+                <a href="#" class="nav__a--desktop">About</a>
+              </li>
+              <li class="nav__li--desktop">
+                <a href="#" class="nav__a--desktop">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header__box header__box--right">
+          <div class="cart__whole">
+            <span class="cart__number">3</span>
+            <img src="images/icon-cart.svg" alt="" class="cart__icon" />
+          </div>
+          <div class="cart__content stay">
+            <p class="cart__text stay">Cart</p>
+            <p class="cart__empty__text stay">Your cart is empty.</p>
+          </div>
+          <img src="images/image-avatar.png" alt="" class="image__avatar" />
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="slider slider__normal">
+          <button class="btn__slider btn__slider--left">
+            <img src="images/icon-previous.svg" alt="" />
+          </button>
+          <button class="btn__slider btn__slider--right">
+            <img src="images/icon-next.svg" alt="" />
+          </button>
+          <div class="slider__content">
+            <img
+              src="images/image-product-1.jpg"
+              alt=""
+              class="slider__img"
+              data-image-number="1"
+            />
+            <img
+              src="images/image-product-2.jpg"
+              alt=""
+              class="slider__img"
+              data-image-number="2"
+            />
+            <img
+              src="images/image-product-3.jpg"
+              alt=""
+              class="slider__img"
+              data-image-number="3"
+            />
+            <img
+              src="images/image-product-4.jpg"
+              alt=""
+              class="slider__img"
+              data-image-number="4"
+            />
+          </div>
+          <div class="slider__thumbnail">
+            <div class="slider__img__thumbnail" data-thumbnail="1">
+              <img src="images/image-product-1-thumbnail.jpg" alt="" />
+            </div>
+            <div class="slider__img__thumbnail" data-thumbnail="2">
+              <img src="images/image-product-2-thumbnail.jpg" alt="" />
+            </div>
+            <div class="slider__img__thumbnail" data-thumbnail="3">
+              <img src="images/image-product-3-thumbnail.jpg" alt="" />
+            </div>
+            <div class="slider__img__thumbnail" data-thumbnail="4">
+              <img src="images/image-product-4-thumbnail.jpg" alt="" />
+            </div>
+          </div>
+        </section>
+        <section class="slider slider__absolute">
+          <img src="images/icon-close.svg" alt="" class="icon__close" />
+          <button class="btn__slider btn__slider--left--absolute">
+            <img src="images/icon-previous.svg" alt="" />
+          </button>
+          <button class="btn__slider btn__slider--right--absolute">
+            <img src="images/icon-next.svg" alt="" />
+          </button>
+          <div class="slider__content">
+            <img
+              src="images/image-product-1.jpg"
+              alt=""
+              class="slider__img--absolute"
+              data-image-number="1"
+            />
+            <img
+              src="images/image-product-2.jpg"
+              alt=""
+              class="slider__img--absolute"
+              data-image-number="2"
+            />
+            <img
+              src="images/image-product-3.jpg"
+              alt=""
+              class="slider__img--absolute"
+              data-image-number="3"
+            />
+            <img
+              src="images/image-product-4.jpg"
+              alt=""
+              class="slider__img--absolute"
+              data-image-number="4"
+            />
+          </div>
+          <div class="slider__thumbnail--absolute">
+            <div class="slider__img__thumbnail--absolute" data-thumbnail="1">
+              <img src="images/image-product-1-thumbnail.jpg" alt="" />
+            </div>
+            <div class="slider__img__thumbnail--absolute" data-thumbnail="2">
+              <img src="images/image-product-2-thumbnail.jpg" alt="" />
+            </div>
+            <div class="slider__img__thumbnail--absolute" data-thumbnail="3">
+              <img src="images/image-product-3-thumbnail.jpg" alt="" />
+            </div>
+            <div class="slider__img__thumbnail--absolute" data-thumbnail="4">
+              <img src="images/image-product-4-thumbnail.jpg" alt="" />
+            </div>
+          </div>
+        </section>
+
+        <section class="product__description">
+          <p class="company">sneaker company</p>
+          <h1>Fall Limited Edition Sneakers</h1>
+          <p class="description">
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they’ll withstand everything
+            the weather can offer.
+          </p>
+          <div class="product__price">
+            <div class="current__price">
+              <h2 class="price">$125.00</h2>
+              <p class="discount__percent">50%</p>
+            </div>
+            <p class="old__price">$250.00</p>
+          </div>
+
+          <div class="buy__buttons">
+            <div class="quantity__count">
+              <button class="btn__quantity quantity__count--less">-</button>
+              <span class="number__count">0</span>
+              <button class="btn__quantity quantity__count--more">+</button>
+            </div>
+
+            <button class="btn--cart">Add to cart</button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="overlay"></div>
+  </body>
+</html>
