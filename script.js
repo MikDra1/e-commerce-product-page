@@ -150,25 +150,26 @@ btnCart.addEventListener("click", function () {
 });
 
 function insertProducts() {
-  const html = `<p class="cart__text stay">Cart</p><div class="products__cart__container stay">${productsCart
-    .map((product) => {
-      return `<div class="cart__product ${product.id} stay">
-      <div class="flex">
-                <img src="images/image-product-1.jpg" alt="" class="cart__product--img stay">
-                <div class="cart__product--content stay">
-                  <p class="stay">Fall Limited Edition Sneakers</p>
-                  <p class="stay">$125.00 X ${product.quantity} $${
-        125 * product.quantity
-      }.00</p>
-                </div>
-                </div>
-                <button class="btn--cart__product stay delete__icon"><img class="stay delete__icon" src="images/icon-delete.svg" alt=""></button>
-              </div>`;
-    })
-    .join("")}</div>
+  const productsInCart = productsCart.map((product) => getProductCart(product));
+  const html = `<p class="cart__text stay">Cart</p><div class="products__cart__container stay">${productsInCart.join("")}</div>
   <button class="btn--checkout stay">Checkout</button>`;
   cartContent.innerHTML = "";
   cartContent.insertAdjacentHTML("afterbegin", html);
+}
+
+function getProductCart(product) {
+  return `<div class="cart__product ${product.id} stay">
+  <div class="flex">
+            <img src="images/image-product-1.jpg" alt="" class="cart__product--img stay">
+            <div class="cart__product--content stay">
+              <p class="stay">Fall Limited Edition Sneakers</p>
+              <p class="stay">$125.00 X ${product.quantity} $${
+    125 * product.quantity
+  }.00</p>
+            </div>
+            </div>
+            <button class="btn--cart__product stay delete__icon"><img class="stay delete__icon" src="images/icon-delete.svg" alt=""></button>
+          </div>`
 }
 
 cartIcon.addEventListener("click", function () {
